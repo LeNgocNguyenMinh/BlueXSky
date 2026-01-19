@@ -68,6 +68,7 @@ public class SceneTransition : MonoBehaviour
             if(SceneManager.GetActiveScene().name == "InGame")
             {
                 InGameSceneSetUp.Instance.ReadyFight();
+                InGamePauseManager.Instance.SetPauseGameActive(false);
             }
             showAnimStart = true;
         }

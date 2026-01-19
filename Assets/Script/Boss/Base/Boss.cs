@@ -7,7 +7,8 @@ public class Boss : MonoBehaviour
 {
     [field: SerializeField]public bool CanShoot { get; set; }
     [field: SerializeField]public GameObject MainObject { get; set; }
-    [field: SerializeField] public float DeadDuration { get; set; }
+    [field: SerializeField]public float DeadDuration { get; set; }
+    [field: SerializeField]public BossInfoManager BossInfoManager { get; set; } 
 
     public StandingEnemyStateMachine StateMachine { get; set; }
     public BossATK1State ATK1State { get; set; }
@@ -70,6 +71,7 @@ public class Boss : MonoBehaviour
     }
     public void BossDead()
     {
+        ObjectDictionary.Instance.GetPlayerPlaneAtributes().playerCoin += BossInfoManager.GetBossReward();
         SoundControl.Instance.BossDeathSoundPlay();
         Debug.Log("Boss Dead Animation");
         transform.localScale = Vector3.one;

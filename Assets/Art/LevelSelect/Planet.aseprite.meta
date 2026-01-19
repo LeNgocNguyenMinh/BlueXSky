@@ -129,7 +129,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: BackGround
     originalName: 
-    pivot: {x: 0.49315068, y: -0.05925926}
+    pivot: {x: 0.5, y: -0.06716418}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -137,8 +137,8 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 73
-      height: 135
+      width: 72
+      height: 134
     spriteID: b61eed11fa77a8242a95450ae12feadc
     spriteBone: []
     spriteOutline: []
@@ -168,9 +168,9 @@ ScriptedImporter:
       additiveSortOrder: 0
       cellRect:
         x: 9
-        y: 8
-        width: 73
-        height: 135
+        y: 9
+        width: 72
+        height: 134
       spriteId: b61eed11fa77a8242a95450ae12feadc
     linkedCells: []
     tileCells: []

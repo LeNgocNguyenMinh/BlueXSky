@@ -21,19 +21,19 @@ public class InGameSceneSetUp : MonoBehaviour
     }
     public void ReadyFight()
     {
-        BulletSpawnPoint.Instance.CreateList4Point();
-        BulletSpawnPoint.Instance.CreateList2Point();
-        boss = Instantiate(ObjectDictionary.Instance.GetLevelInfo(currentSelectLevel.currentSelectLevelID).bossPrefab, bossSpawnPoint.position, Quaternion.identity);
+        CreateListOfPoint.Instance.CreateList4PointX();
+        CreateListOfPoint.Instance.CreateList2PointX();
+        CreateListOfPoint.Instance.CreateList4PointY();
+        boss = Instantiate(ObjectDictionary.Instance.GetLevelInfo(currentSelectLevel.currentSelectLevelID).bossPrefab,  new Vector3(0, CreateListOfPoint.Instance.GetList4PointY()[3], 0), Quaternion.identity);
         boss.GetComponent<Boss>().SetCanShoot(false);
         boss.GetComponent<BossHealthControl>().SetStartupHealth();
-        playerPlane = Instantiate(ObjectDictionary.Instance.GetPlayerPlanePrefab(), Vector3.zero, Quaternion.identity);
+        playerPlane = Instantiate(ObjectDictionary.Instance.GetPlayerPlaneAtributes().playerPlanePrefab, Vector3.zero, Quaternion.identity);
         playerPlane.GetComponent<PlayerPlaneController>().SetStartValue();
         playerPlane.GetComponent<PlayerPlaneBulletSpawn>().SetStartValue();
         playerPlane.GetComponent<PlayerPlaneController>().SetStartPosition();
         playerPlane.GetComponent<PlayerHealthControl>().SetStartHealth();
         playerPlane.GetComponent<PlayerPlaneEnergyCharge>().SetStartValue();      
         InGamePauseManager.Instance.StartSetUp();
-        NotifPopUp.Instance.ShowNotif("");
     }
     public void StartFight()
     {
@@ -41,6 +41,7 @@ public class InGameSceneSetUp : MonoBehaviour
         playerPlane.GetComponent<PlayerPlaneBulletSpawn>().SetCanShoot(true);
         playerPlane.GetComponent<PlayerPlaneController>().SetCanMove(true);
         SoundControl.Instance.InGameMusicPlay();
+        NotifPopUp.Instance.ShowNotif("Now play '1980' song.");
     }
     public void PauseFight()
     {

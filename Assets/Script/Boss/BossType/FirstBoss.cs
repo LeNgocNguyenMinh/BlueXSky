@@ -9,25 +9,24 @@ public class FirstBoss : Boss
     [SerializeField]private float straightBulletSpeed;
     [SerializeField]private float changeRouteBulletSpeed;
     [SerializeField]private float concentraitBulletSpeed;
-    [SerializeField]private BossInfoManager bossInfoManager;
-    public int hitBackBulletCount = 0;
+    private int hitBackBulletCount = 0;
     [SerializeField]private int maxBulletForHitBack;
     public override void BossATK1()
     {
         base.BossATK1();
         SoundControl.Instance.BossShootSoundPlay();
-        int index = Random.Range(0, BulletSpawnPoint.Instance.GetList4Point().Count);
-        Vector3 spawnPos = new Vector3(BulletSpawnPoint.Instance.GetList4Point()[index], transform.position.y, 0);
+        int index = Random.Range(0, CreateListOfPoint.Instance.GetList4PointX().Count);
+        Vector3 spawnPos = new Vector3(CreateListOfPoint.Instance.GetList4PointX()[index], transform.position.y, 0);
         FBBulletType1 tmp = Instantiate(straightBulletPrefab, spawnPos, Quaternion.identity).GetComponent<FBBulletType1>();
         hitBackBulletCount ++;
         if(hitBackBulletCount == maxBulletForHitBack)
         {
-            tmp.SetValue(BulletSpawnPoint.Instance.GetList4Point()[index], straightBulletSpeed, bossInfoManager.GetBossMaxDamage(), true); 
+            tmp.SetValue(CreateListOfPoint.Instance.GetList4PointX()[index], straightBulletSpeed, BossInfoManager.GetBossMaxDamage(), true); 
             hitBackBulletCount = 0; 
         }
         else
         {
-            tmp.SetValue(BulletSpawnPoint.Instance.GetList4Point()[index], straightBulletSpeed, bossInfoManager.GetBossMaxDamage(), false);   
+            tmp.SetValue(CreateListOfPoint.Instance.GetList4PointX()[index], straightBulletSpeed, BossInfoManager.GetBossMaxDamage(), false);   
         }
         
     }
@@ -35,17 +34,17 @@ public class FirstBoss : Boss
     {
         base.BossATK2();
         SoundControl.Instance.BossShootSoundPlay();
-        int index = Random.Range(0, BulletSpawnPoint.Instance.GetList4Point().Count);
-        FBBulletType2 tmp = Instantiate(changeRouteBulletPrefab, new Vector3(BulletSpawnPoint.Instance.GetList4Point()[index], transform.position.y, 0), Quaternion.identity).GetComponent<FBBulletType2>();
+        int index = Random.Range(0, CreateListOfPoint.Instance.GetList4PointX().Count);
+        FBBulletType2 tmp = Instantiate(changeRouteBulletPrefab, new Vector3(CreateListOfPoint.Instance.GetList4PointX()[index], transform.position.y, 0), Quaternion.identity).GetComponent<FBBulletType2>();
         hitBackBulletCount ++;
         if(hitBackBulletCount == maxBulletForHitBack)
         {
-            tmp.SetValue(changeRouteBulletSpeed, bossInfoManager.GetBossMaxDamage(), index, true);
+            tmp.SetValue(changeRouteBulletSpeed, BossInfoManager.GetBossMaxDamage(), index, true);
             hitBackBulletCount = 0; 
         }
         else
         {
-            tmp.SetValue(changeRouteBulletSpeed, bossInfoManager.GetBossMaxDamage(), index, false);
+            tmp.SetValue(changeRouteBulletSpeed, BossInfoManager.GetBossMaxDamage(), index, false);
         }
         
     }
@@ -53,26 +52,26 @@ public class FirstBoss : Boss
     {
         base.BossATK3();
         SoundControl.Instance.BossShootSoundPlay();
-        int index = Random.Range(0, BulletSpawnPoint.Instance.GetList4Point().Count);
+        int index = Random.Range(0, CreateListOfPoint.Instance.GetList4PointX().Count);
         hitBackBulletCount ++;
-        for(int i = 0; i < BulletSpawnPoint.Instance.GetList4Point().Count; i++)
+        for(int i = 0; i < CreateListOfPoint.Instance.GetList4PointX().Count; i++)
         {
-            Vector3 spawnPos = new Vector3(BulletSpawnPoint.Instance.GetList4Point()[i], transform.position.y, 0);
+            Vector3 spawnPos = new Vector3(CreateListOfPoint.Instance.GetList4PointX()[i], transform.position.y, 0);
             FBBulletType3 tmp = Instantiate(concentraitBulletPrefab, spawnPos, Quaternion.identity).GetComponent<FBBulletType3>();
             if(i==index)
             {
                 if(hitBackBulletCount == maxBulletForHitBack)
                 {
-                    tmp.SetValue(BulletSpawnPoint.Instance.GetList4Point()[i], concentraitBulletSpeed, bossInfoManager.GetBossMaxDamage(), false, true);  
+                    tmp.SetValue(CreateListOfPoint.Instance.GetList4PointX()[i], concentraitBulletSpeed, BossInfoManager.GetBossMaxDamage(), false, true);  
                     hitBackBulletCount = 0; 
                 }
                 else
                 {
-                    tmp.SetValue(BulletSpawnPoint.Instance.GetList4Point()[i], concentraitBulletSpeed, bossInfoManager.GetBossMaxDamage(), false, false);  
+                    tmp.SetValue(CreateListOfPoint.Instance.GetList4PointX()[i], concentraitBulletSpeed, BossInfoManager.GetBossMaxDamage(), false, false);  
                 }
             }
             else{
-                tmp.SetValue(BulletSpawnPoint.Instance.GetList4Point()[i], concentraitBulletSpeed, bossInfoManager.GetBossMaxDamage(), true, false); 
+                tmp.SetValue(CreateListOfPoint.Instance.GetList4PointX()[i], concentraitBulletSpeed, BossInfoManager.GetBossMaxDamage(), true, false); 
             }
              
         }

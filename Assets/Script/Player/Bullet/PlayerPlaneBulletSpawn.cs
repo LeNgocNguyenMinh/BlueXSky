@@ -2,17 +2,19 @@ using System.Collections;
 using System.Xml.Serialization;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerPlaneBulletSpawn : MonoBehaviour
 {
     public static PlayerPlaneBulletSpawn Instance;
     [SerializeField]private GameObject planeBullet;
-    [SerializeField]private float speed;
-    [SerializeField]private float fullChargeLength;
-    [SerializeField]private float originDelay;
-    [SerializeField]private float fullChargeDelay;
     [SerializeField]private Transform firePoint;
-    [SerializeField]private float damage;
+    [SerializeField]private PlayerAttributes playerAttributes;
+    private float damage;
+    private float speed;
+    private float originDelay;
+    private float fullChargeDelay;
+    private float playerFullChargeDuration;
     private float countDown;
     private float spawnDelay;
     private bool canShoot;
@@ -31,10 +33,17 @@ public class PlayerPlaneBulletSpawn : MonoBehaviour
     }
     public void SetStartValue()
     {
+        //Base info
+        damage = playerAttributes.playerBaseDamage;
+        speed = playerAttributes.playerBulletSpeed;
+        originDelay = playerAttributes.playerBaseDelay;
+        fullChargeDelay = playerAttributes.playerFullChargeDelay;
+        playerFullChargeDuration = playerAttributes.playerFullChargeDuration;
+        //Start info
         spawnDelay = originDelay;
-        inFullChargeMode = false;
         countDown = 0f;
         canShoot = false;
+        inFullChargeMode = false;
     }
     private void Update()
     {
@@ -86,7 +95,7 @@ public class PlayerPlaneBulletSpawn : MonoBehaviour
     public void InFullChargeMode()
     {
         spawnDelay = fullChargeDelay;
-        fullChargeCount = fullChargeLength;
+        fullChargeCount = playerFullChargeDuration;
         inFullChargeMode = true;
     }
     public void ExitFullChargeMode()

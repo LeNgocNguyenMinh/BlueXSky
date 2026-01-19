@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 363b824f2f1d01446a01b28bcd8f6b4e, type: 3}
+  m_Name: PlayerAttributes
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttributes
+  playerBaseDamage: 1
+  playerFullChargeDuration: 10
+  playerBulletSpeed: 10
+  playerBaseDelay: 0.5
+  playerFullChargeDelay: 0.1
+  playerCoin: 120
+  playerPlanePrefab: {fileID: 8527349159829186181, guid: c070a9cb82b76a444b78ec0e6bf575d9, type: 3}

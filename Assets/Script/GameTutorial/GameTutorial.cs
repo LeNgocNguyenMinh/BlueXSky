@@ -49,6 +49,7 @@ public class GameTutorial : MonoBehaviour
         seq.OnComplete(() =>
         {
             Time.timeScale = 1f;
+            InGamePauseManager.Instance.SetPauseGameActive(true);
             InGameSceneSetUp.Instance.StartFight();
         });
     }

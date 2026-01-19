@@ -660,7 +660,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerPlaneController
   rb: {fileID: 6096364240740600546}
   moveSpeed: 10
-  yPos: -4
   listX: []
 --- !u!114 &2322311974960517409
 MonoBehaviour:
@@ -675,12 +674,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerPlaneBulletSpawn
   planeBullet: {fileID: 6986072561767785338, guid: 393f094d9c93eb642a49aa755f293b44, type: 3}
-  speed: 10
-  fullChargeLength: 10
-  originDelay: 0.5
-  fullChargeDelay: 0.1
   firePoint: {fileID: 8804652215208155770}
-  damage: 0.1
+  playerAttributes: {fileID: 11400000, guid: 445bc12b2476a6f4fad9e35b56d978ba, type: 2}
   inFullChargeMode: 0
 --- !u!114 &4025073426715144977
 MonoBehaviour:

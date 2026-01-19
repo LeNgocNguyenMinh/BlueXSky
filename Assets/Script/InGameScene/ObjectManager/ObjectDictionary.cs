@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class ObjectDictionary : MonoBehaviour
 {
     public static ObjectDictionary Instance;
-    [SerializeField]private GameObject playerPlanePrefab;
+    [SerializeField]private PlayerAttributes playerPlaneAttributes;
     [SerializeField]private List<LevelInformation> levelList;
     private Dictionary<string, LevelInformation> levelDictionary;
 
@@ -33,8 +33,8 @@ public class ObjectDictionary : MonoBehaviour
         Debug.LogWarning($"Không tìm thấy Item ID {levelID} trong dictionary");
         return null; // Trả về null nếu không tìm thấy
     }
-    public GameObject GetPlayerPlanePrefab()
+    public PlayerAttributes GetPlayerPlaneAtributes()
     {
-        return playerPlanePrefab;
+        return playerPlaneAttributes;
     }
 }

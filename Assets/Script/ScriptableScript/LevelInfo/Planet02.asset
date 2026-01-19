@@ -15,3 +15,4 @@ MonoBehaviour:
   levelID: Planet_02
   planetName: Planet-KH
   bossPrefab: {fileID: 948339214856580575, guid: 8a75f67e258b96c489541f75e697a168, type: 3}
+  rewardCoin: 50

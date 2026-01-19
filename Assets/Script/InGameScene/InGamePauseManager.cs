@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class InGamePauseManager : MonoBehaviour
 {
@@ -50,17 +51,17 @@ public class InGamePauseManager : MonoBehaviour
     }
     public void StartSetUp()
     {
-        Debug.Log("1");
         textImage.gameObject.SetActive(false);
-        Debug.Log(textImage.gameObject.activeSelf);
         pausePanel.SetActive(false);
         gameOverPanel.SetActive(false);
         winPanel.SetActive(false);
+        isPaused = false;
+        isOver = false;
+        isWin = false;
         
     }
     private void OnEnable()
     {
-        Debug.Log("2");
         pauseBtn.onClick.AddListener(PauseGameOn);
         resumeBtn.onClick.AddListener(ResumeGame);
         chooseLevelPauseBtn.onClick.AddListener(ToLevelSelectScene);
@@ -70,9 +71,8 @@ public class InGamePauseManager : MonoBehaviour
     }
     private void PauseGameOn()
     {
-        Debug.Log("3");
-        pauseBtn.gameObject.SetActive(false);
         isPaused = true;
+        pauseBtn.gameObject.SetActive(false);
         textImage.sprite = pauseTextSprite;
         animator.updateMode = AnimatorUpdateMode.UnscaledTime;
         animator.SetTrigger("PauseOn");
@@ -80,21 +80,27 @@ public class InGamePauseManager : MonoBehaviour
 
     private void ResumeGame()
     {
-        Debug.Log("4");
+        isPaused = false;
         textImage.gameObject.SetActive(false);
         pausePanel.SetActive(false);
         animator.updateMode = AnimatorUpdateMode.UnscaledTime;
         animator.SetTrigger("PauseOff");
     }
+    public void SetPauseGameActive(bool value)
+    {
+        pauseBtn.gameObject.SetActive(value);
+    }
     public void GameOverMenuOn()
     {
         isOver = true;
+        pauseBtn.gameObject.SetActive(false);
         textImage.sprite = overTextSprite;
         animator.updateMode = AnimatorUpdateMode.UnscaledTime;
         animator.SetTrigger("PauseOn");
     }
     private void GameOverMenuOff()
     {
+        isOver = false;
         textImage.gameObject.SetActive(false);
         animator.updateMode = AnimatorUpdateMode.UnscaledTime;
         animator.SetTrigger("PauseOff");
@@ -108,6 +114,7 @@ public class InGamePauseManager : MonoBehaviour
     public void WinGameMenuOn()
     {
         isWin = true;
+        pauseBtn.gameObject.SetActive(false);
         textImage.sprite = winTextSprite;
         animator.updateMode = AnimatorUpdateMode.UnscaledTime;
         animator.SetTrigger("PauseOn");
@@ -141,22 +148,13 @@ public class InGamePauseManager : MonoBehaviour
         {
             Time.timeScale = 1f;
             animator.updateMode = AnimatorUpdateMode.Normal;
-            if(isPaused)
-            {
-                pauseBtn.gameObject.SetActive(true);
-                pausePanel.SetActive(false);
-                isPaused = false;
-            }
-            else if(isOver)
-            {
-                gameOverPanel.SetActive(false);
-                isOver = false;
-            }
-            else if(isWin)
-            {
-                winPanel.SetActive(false);
-                isWin = false;
-            }
+            pauseBtn.gameObject.SetActive(true);
+            pausePanel.SetActive(false);
+            winPanel.SetActive(false);
+            gameOverPanel.SetActive(false);
+            isPaused = false;
+            isWin = false;
+            isOver = false;
         }
         else if(animState == AnimState.PauseOnAnimStart)
         {

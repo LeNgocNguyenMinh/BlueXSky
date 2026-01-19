@@ -19,4 +19,8 @@ public class BossInfoManager : MonoBehaviour
     {
         return bossInfo.bossBaseDamage;
     }
+    public float GetBossReward()
+    {
+        return bossInfo.bossBaseReward;
+    }
 }

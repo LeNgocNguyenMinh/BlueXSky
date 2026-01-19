@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 6612025253729751969}
   - component: {fileID: 5730733409359034337}
   m_Layer: 0
-  m_Name: SecondBoss
+  m_Name: FirstBoss
   m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -164,6 +164,7 @@ MonoBehaviour:
   <CanShoot>k__BackingField: 0
   <MainObject>k__BackingField: {fileID: 9167425421902543886}
   <DeadDuration>k__BackingField: 1.5
+  <BossInfoManager>k__BackingField: {fileID: 6612025253729751969}
   ATK1Delay: 1
   ATK1RepeatTime: 10
   ATK2Delay: 1
@@ -176,7 +177,6 @@ MonoBehaviour:
   straightBulletSpeed: 5
   changeRouteBulletSpeed: 5
   concentraitBulletSpeed: 5
-  bossInfoManager: {fileID: 6612025253729751969}
   hitBackBulletCount: 0
   maxBulletForHitBack: 3
 --- !u!114 &3163102933462795442

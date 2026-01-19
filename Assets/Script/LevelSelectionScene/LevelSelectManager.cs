@@ -23,6 +23,7 @@ public class LevelSelectManager : MonoBehaviour
     {
         SoundControl.Instance.LevelSelectMusicPlay();
         backToMainMenuBtn.interactable = true;
+        NotifPopUp.Instance.ShowNotif("Now play 'Cyberpunk' song.");
     }
     private void OnEnable()
     {

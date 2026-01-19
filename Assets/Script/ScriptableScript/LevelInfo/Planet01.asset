@@ -15,3 +15,4 @@ MonoBehaviour:
   levelID: Planet_01
   planetName: Planrt-NA
   bossPrefab: {fileID: 9167425421902543886, guid: 3138c14381d87cb4b98d8cb83bfd96ee, type: 3}
+  rewardCoin: 50

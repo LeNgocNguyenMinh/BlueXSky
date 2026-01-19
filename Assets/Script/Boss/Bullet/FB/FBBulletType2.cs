@@ -23,7 +23,7 @@ public class FBBulletType2 : MonoBehaviour
         this.isHitBackBullet = isHitBackBullet;
         this.damage = damage;
         this.speed = speed;
-        listX = BulletSpawnPoint.Instance.GetList4Point();
+        listX = CreateListOfPoint.Instance.GetList4PointX();
         this.currentIndex = currentIndex;
         isChange = false;
         currentTarget = new Vector2(listX[currentIndex], 0);

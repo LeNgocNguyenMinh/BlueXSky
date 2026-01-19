@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossHealthControl
   bossInfoManager: {fileID: 8419131063434653909}
-  boss: {fileID: 0}
+  boss: {fileID: -2724317283777172900}
 --- !u!114 &8419131063434653909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +147,7 @@ MonoBehaviour:
   <CanShoot>k__BackingField: 0
   <MainObject>k__BackingField: {fileID: 948339214856580575}
   <DeadDuration>k__BackingField: 1.5
+  <BossInfoManager>k__BackingField: {fileID: 8419131063434653909}
   ATK1Delay: 1
   ATK1RepeatTime: 5
   ATK2Delay: 1
@@ -160,7 +161,6 @@ MonoBehaviour:
   midBulletSpeed: 5
   bigBulletSpeed: 5
   bossInfoManager: {fileID: 8419131063434653909}
-  hitBackBulletCount: 0
   maxBulletForHitBack: 3
 --- !u!1 &9020356945731012017
 GameObject:

@@ -7,16 +7,11 @@ public class PlayerPlaneController : MonoBehaviour
 {
     [SerializeField]private Rigidbody2D rb;
     [SerializeField]private float moveSpeed;
-    [SerializeField]private float yPos;
+    private float yPos;
     private Vector3 target;
     public List<float> listX;
     private int currentIndex;
     private bool canMove = false;
-    private void Start()
-    {
-        canMove = false;
-        currentIndex = 0;
-    }
     public void SetStartValue()
     {
         canMove = false;
@@ -25,7 +20,8 @@ public class PlayerPlaneController : MonoBehaviour
     public void SetStartPosition()
     {
         listX = new List<float>();
-        listX = BulletSpawnPoint.Instance.GetList4Point();
+        listX = CreateListOfPoint.Instance.GetList4PointX();
+        yPos = CreateListOfPoint.Instance.GetList4PointY()[0];
         transform.position = new Vector3(listX[0], yPos, transform.position.z);
         target = transform.position;
     }
