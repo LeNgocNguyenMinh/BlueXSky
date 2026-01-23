@@ -6,6 +6,7 @@ using TMPro;
 public class PlayerHealthControl : MonoBehaviour
 {
     public static PlayerHealthControl Instance;
+    [SerializeField]private PlayerAttributes playerAttributes;
     public float healthCurrentValue;// Health current value
     public float healthMaxValue; // Health max value need to achive for level up
 
@@ -20,11 +21,12 @@ public class PlayerHealthControl : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void SetStartHealth()
+    public void SetStartValue()
     {
-        healthMaxValue = 100;
-        healthCurrentValue = 100;
+        healthMaxValue = playerAttributes.playerHealth;
+        healthCurrentValue = healthMaxValue;
         PlayerHealthBar.Instance.SetMaxHealth();
+        PlayerHealthBar.Instance.UpdateHealthText();
     }
     public void PlayerHurt(float damageAmount) //Player hurt by enemy
     {
@@ -36,7 +38,6 @@ public class PlayerHealthControl : MonoBehaviour
             InGamePauseManager.Instance.GameOverMenuOn();
         }
         PlayerHealthBar.Instance.UpdateHealthText();
-        PlayerHealthBar.Instance.SetCurrentHealth();
-        
+        PlayerHealthBar.Instance.SetCurrentHealth(); 
     }
 }

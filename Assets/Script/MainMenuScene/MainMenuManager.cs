@@ -29,7 +29,7 @@
         public void OnStartButtonClicked()
         {
             DisableButton();
-            SceneTransition.Instance.SceneHide();
+            SceneTransition.Instance.HideTransStart();
             StartCoroutine(LoadNewGameScene("LevelSelection"));
         }
         private IEnumerator LoadNewGameScene(string sceneName)
@@ -52,7 +52,7 @@
         private void OnNewGameSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             SceneManager.sceneLoaded -= OnNewGameSceneLoaded;
-            SceneTransition.Instance.SceneShow();
+            SceneTransition.Instance.ShowTransStart();
         }
         private void OnExitButtonClicked()
         {

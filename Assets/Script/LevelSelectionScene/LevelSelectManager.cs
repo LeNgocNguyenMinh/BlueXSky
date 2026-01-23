@@ -21,9 +21,11 @@ public class LevelSelectManager : MonoBehaviour
     }
     public void SceneEnter()
     {
+        Time.timeScale = 1f;
+        PlayerPlaneControlInLevelSelect.Instance.SetCanMove(true);
         SoundControl.Instance.LevelSelectMusicPlay();
         backToMainMenuBtn.interactable = true;
-        NotifPopUp.Instance.ShowNotif("Now play 'Cyberpunk' song.");
+        NotifPopUp.Instance.ShowNotif("Now play 'Cyberpunk' song.", 1f);
     }
     private void OnEnable()
     {
@@ -31,7 +33,9 @@ public class LevelSelectManager : MonoBehaviour
     }
     private void ToMainMenu()
     {
+        PlayerPlaneControlInLevelSelect.Instance.SetCanMove(false);
         backToMainMenuBtn.interactable = false;
+        SceneTransition.Instance.HideTransStart();
         StartCoroutine(LoadGameScene("MainMenu"));
     }
     private IEnumerator LoadGameScene(string sceneName)
@@ -46,7 +50,6 @@ public class LevelSelectManager : MonoBehaviour
             { 
                 SceneManager.sceneLoaded += OnSceneLoaded;
                 operation.allowSceneActivation = true;
-
             }
             yield return null;
         }
@@ -54,7 +57,7 @@ public class LevelSelectManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
-        SceneTransition.Instance.SceneShow();
+        SceneTransition.Instance.ShowTransStart();
     }
     public void SetCurrentSelectLevelID(string levelID)
     {

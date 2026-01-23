@@ -138,7 +138,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GamePauseAnim_0
+      name: PauseOn_0
       rect:
         serializedVersion: 2
         x: 0
@@ -151,16 +151,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: cd2a7b47d3a849d60800000000000000
-      internalID: 7896088043243152092
+      spriteID: 6242c570b3b02524a9d624a495e59d10
+      internalID: 783890070
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GamePauseAnim_1
+      name: PauseOn_1
       rect:
         serializedVersion: 2
         x: 90
@@ -173,16 +173,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 20b6114dfdd4f8450800000000000000
-      internalID: 6093174444586527490
+      spriteID: 469aed17d3b86884dab0cc0ad5c8347a
+      internalID: -151680123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GamePauseAnim_2
+      name: PauseOn_2
       rect:
         serializedVersion: 2
         x: 180
@@ -195,16 +195,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1a1f0fd5481125300800000000000000
-      internalID: 239272990413484449
+      spriteID: 663a8b1a49e07eb468dfde4ae8f97f39
+      internalID: -1814864918
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GamePauseAnim_3
+      name: PauseOn_3
       rect:
         serializedVersion: 2
         x: 270
@@ -217,16 +217,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a702f4674e7c11a30800000000000000
-      internalID: 4184345312855269498
+      spriteID: fd73c2f8df4891446b7b84895b0d9c51
+      internalID: -726877227
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GamePauseAnim_4
+      name: PauseOn_4
       rect:
         serializedVersion: 2
         x: 360
@@ -239,10 +239,32 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: bd53a988c5c6a4620800000000000000
-      internalID: 2759136866402448859
+      spriteID: fe613b107511ade4caa12894f527a564
+      internalID: 2113527159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseOn_5
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 0
+        width: 90
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9069d2ad60fa7d4396e59db2320b0cb
+      internalID: 1942127122
       vertices: []
       indices: 
       edges: []
@@ -261,13 +283,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":1.0},"gridSpriteSize":{"x":90.0,"y":195.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":6.0,"y":1.0},"gridSpriteSize":{"x":90.0,"y":195.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      GamePauseAnim_0: 7896088043243152092
-      GamePauseAnim_1: 6093174444586527490
-      GamePauseAnim_2: 239272990413484449
-      GamePauseAnim_3: 4184345312855269498
-      GamePauseAnim_4: 2759136866402448859
+      PauseOn_0: 783890070
+      PauseOn_1: -151680123
+      PauseOn_2: -1814864918
+      PauseOn_3: -726877227
+      PauseOn_4: 2113527159
+      PauseOn_5: 1942127122
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

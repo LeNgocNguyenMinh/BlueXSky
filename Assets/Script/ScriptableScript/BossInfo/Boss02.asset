@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Boss02
   m_EditorClassIdentifier: Assembly-CSharp::BossInfo
   bossID: Boss_02
-  bossBaseHealth: 100
+  bossBaseHealth: 200
   bossBaseDamage: 1
   bossBaseReward: 50

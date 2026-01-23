@@ -34,7 +34,7 @@ public class PlayerPlaneBulletSpawn : MonoBehaviour
     public void SetStartValue()
     {
         //Base info
-        damage = playerAttributes.playerBaseDamage;
+        damage = playerAttributes.playerDamage;
         speed = playerAttributes.playerBulletSpeed;
         originDelay = playerAttributes.playerBaseDelay;
         fullChargeDelay = playerAttributes.playerFullChargeDelay;

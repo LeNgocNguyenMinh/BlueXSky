@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerPlaneControlInLevelSelect : MonoBehaviour
 {
+    public static PlayerPlaneControlInLevelSelect Instance;
     [SerializeField] private float moveSpeed = 0.01f;
     [SerializeField]private SpriteRenderer sr;
 
@@ -10,16 +11,31 @@ public class PlayerPlaneControlInLevelSelect : MonoBehaviour
 
     private float camWidth;
     private float camHeight;
-
+    private bool canMove;
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
         cam = Camera.main;
         camHeight = cam.orthographicSize;
         camWidth = camHeight * cam.aspect;
     }
-
+    public void SetCanMove(bool value)
+    {
+        canMove = value;
+    }
     void Update()
     {
+        if(!canMove)return;
         if (Input.touchCount == 0)
             return;
 

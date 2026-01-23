@@ -644,6 +644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca8ab40cc71e4be4db57468482699a0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealthControl
+  playerAttributes: {fileID: 11400000, guid: 445bc12b2476a6f4fad9e35b56d978ba, type: 2}
   healthCurrentValue: 50
   healthMaxValue: 50
 --- !u!114 &7472745862618711211

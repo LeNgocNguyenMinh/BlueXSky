@@ -12,10 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 363b824f2f1d01446a01b28bcd8f6b4e, type: 3}
   m_Name: PlayerAttributes
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttributes
-  playerBaseDamage: 1
-  playerFullChargeDuration: 10
+  playerPlanePrefab: {fileID: 8527349159829186181, guid: c070a9cb82b76a444b78ec0e6bf575d9, type: 3}
+  playerDamage: 1
+  damageUpgradeAmount: 0.01
+  damageUpgradeCost: 10
+  playerHealth: 102.5
+  healthUpgradeAmount: 0.5
+  healthUpgradeCost: 10
+  playerFullChargeDuration: 3
   playerBulletSpeed: 10
   playerBaseDelay: 0.5
   playerFullChargeDelay: 0.1
-  playerCoin: 120
-  playerPlanePrefab: {fileID: 8527349159829186181, guid: c070a9cb82b76a444b78ec0e6bf575d9, type: 3}
+  playerScrap: 0

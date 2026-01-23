@@ -26,12 +26,12 @@ public class InGameSceneSetUp : MonoBehaviour
         CreateListOfPoint.Instance.CreateList4PointY();
         boss = Instantiate(ObjectDictionary.Instance.GetLevelInfo(currentSelectLevel.currentSelectLevelID).bossPrefab,  new Vector3(0, CreateListOfPoint.Instance.GetList4PointY()[3], 0), Quaternion.identity);
         boss.GetComponent<Boss>().SetCanShoot(false);
-        boss.GetComponent<BossHealthControl>().SetStartupHealth();
+        boss.GetComponent<BossHealthControl>().SetStartValue();
         playerPlane = Instantiate(ObjectDictionary.Instance.GetPlayerPlaneAtributes().playerPlanePrefab, Vector3.zero, Quaternion.identity);
         playerPlane.GetComponent<PlayerPlaneController>().SetStartValue();
         playerPlane.GetComponent<PlayerPlaneBulletSpawn>().SetStartValue();
         playerPlane.GetComponent<PlayerPlaneController>().SetStartPosition();
-        playerPlane.GetComponent<PlayerHealthControl>().SetStartHealth();
+        playerPlane.GetComponent<PlayerHealthControl>().SetStartValue();
         playerPlane.GetComponent<PlayerPlaneEnergyCharge>().SetStartValue();      
         InGamePauseManager.Instance.StartSetUp();
     }
@@ -41,7 +41,7 @@ public class InGameSceneSetUp : MonoBehaviour
         playerPlane.GetComponent<PlayerPlaneBulletSpawn>().SetCanShoot(true);
         playerPlane.GetComponent<PlayerPlaneController>().SetCanMove(true);
         SoundControl.Instance.InGameMusicPlay();
-        NotifPopUp.Instance.ShowNotif("Now play '1980' song.");
+        NotifPopUp.Instance.ShowNotif("Now play '1980' song.", 1f);
     }
     public void PauseFight()
     {
@@ -49,10 +49,16 @@ public class InGameSceneSetUp : MonoBehaviour
         playerPlane.GetComponent<PlayerPlaneBulletSpawn>().SetCanShoot(false);
         playerPlane.GetComponent<PlayerPlaneController>().SetCanMove(false);
     }
+    public void FightResume()
+    {
+        boss.GetComponent<Boss>().SetCanShoot(true);        
+        playerPlane.GetComponent<PlayerPlaneBulletSpawn>().SetCanShoot(true);
+        playerPlane.GetComponent<PlayerPlaneController>().SetCanMove(true);
+    }
     public void RestartFight()
     {
-        BossHealthControl.Instance.SetStartupHealth();
-        PlayerHealthControl.Instance.SetStartHealth();
+        BossHealthControl.Instance.SetStartValue();
+        PlayerHealthControl.Instance.SetStartValue();
         PlayerPlaneEnergyCharge.Instance.SetStartValue();
     }
 }

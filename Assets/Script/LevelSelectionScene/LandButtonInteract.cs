@@ -2,11 +2,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class LandButtonInteract : MonoBehaviour
 {
     public static LandButtonInteract Instance;
     [SerializeField] private Button landBtn;
+    private bool isOnLand;
     private void Awake()
     {
         if (Instance == null)
@@ -20,12 +22,32 @@ public class LandButtonInteract : MonoBehaviour
     }
     public void OnEnable()
     {
-        landBtn.onClick.AddListener(StartFight);
+        landBtn.onClick.AddListener(ButtonInteractive);
     }
-    public void StartFight()
+    public void ToInGameScene()
     {
-        SceneTransition.Instance.SceneHide();
+        SceneTransition.Instance.HideTransStart();
         StartCoroutine(LoadFightScene("InGame"));
+    }
+    private void ButtonInteractive()
+    {
+        PlayerPlaneControlInLevelSelect.Instance.SetCanMove(false);
+        if(isOnLand)
+        {
+            ToInGameScene();
+        }
+        else
+        {
+            HomeBase.Instance.EnterHomeBase();
+        }
+    }
+    public void OnLand()
+    {
+        isOnLand = true;
+    }
+    public void OnHomeBase()
+    {
+        isOnLand = false;
     }
     private IEnumerator LoadFightScene(string sceneName)
     {
@@ -48,8 +70,7 @@ public class LandButtonInteract : MonoBehaviour
     private void OnFightSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         SceneManager.sceneLoaded -= OnFightSceneLoaded;
-        SceneTransition.Instance.SceneShow();
-        InGameSceneSetUp.Instance.StartFight();
+        SceneTransition.Instance.ShowTransStart();
     }
     public void EnableLandButton()
     {

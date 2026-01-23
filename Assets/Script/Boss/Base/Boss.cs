@@ -71,9 +71,9 @@ public class Boss : MonoBehaviour
     }
     public void BossDead()
     {
-        ObjectDictionary.Instance.GetPlayerPlaneAtributes().playerCoin += BossInfoManager.GetBossReward();
+        ObjectDictionary.Instance.GetPlayerPlaneAtributes().playerScrap += BossInfoManager.GetBossReward();
+        NotifPopUp.Instance.ShowNotif("Receive {BossInfoManager.GetBossReward()} Scrap!", 2f);
         SoundControl.Instance.BossDeathSoundPlay();
-        Debug.Log("Boss Dead Animation");
         transform.localScale = Vector3.one;
         transform.rotation = Quaternion.identity;
 

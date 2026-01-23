@@ -10,7 +10,6 @@ public class NotifPopUp : MonoBehaviour
     [SerializeField]private TextMeshProUGUI notifText;
     [SerializeField]private Vector3 textHidePos;
     [SerializeField]private Vector3 textShowPos;
-    [SerializeField]private float displayDuration;
     private void Awake()
     {
         if(Instance == null)
@@ -22,7 +21,7 @@ public class NotifPopUp : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void ShowNotif(string text)
+    public void ShowNotif(string text, float displayDuration)
     {
         Sequence seq = DOTween.Sequence();
         seq.AppendCallback(() =>

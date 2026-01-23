@@ -38,6 +38,6 @@ public class PlayerHealthBar : MonoBehaviour
     }
     public void UpdateHealthText()
     {
-        healthText.text = $"{(int)PlayerHealthControl.Instance.healthCurrentValue}/{(int)PlayerHealthControl.Instance.healthMaxValue}";
+        healthText.text = $"{(int)PlayerHealthControl.Instance.healthCurrentValue:0.0}/{(int)PlayerHealthControl.Instance.healthMaxValue:0.0}";
     }
 }

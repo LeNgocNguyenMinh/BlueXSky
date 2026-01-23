@@ -22,10 +22,10 @@ public class PlanetLevelInteract : MonoBehaviour
             planetBorder.enabled = true;
             showButton = true;
             LevelSelectManager.Instance.SetCurrentSelectLevelID(planetInfo.levelID);
+            LandButtonInteract.Instance.OnLand();
             LandButtonInteract.Instance.ShowLandButton();
             planetStatus.text = $"planet name: {planetInfo.planetName}\n" +
-                                $"planet code: {planetInfo.levelID}\n" +
-                                "planet status: NotFinish";
+                                $"planet code: {planetInfo.levelID}\n";
             planetStatus.gameObject.SetActive(true);
         }
     }

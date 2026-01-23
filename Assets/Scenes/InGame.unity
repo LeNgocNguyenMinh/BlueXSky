@@ -1961,15 +1961,23 @@ MonoBehaviour:
   rbRectPanel: {fileID: 161308193}
   rbHidePos: {x: 340, y: 0, z: 0}
   rbShowPos: {x: 0, y: 0, z: 0}
-  tutorialTexts:
-  - Welcome to the field captain!
-  - Avoid the RED bullet
-  - Collect the BLUE one
-  - Ready
-  - 3
-  - 2
-  - 1
-  - Go!
+  tutorialTextList:
+  - tutorialText: Welcome to the field Captain
+    displayDuration: 1
+  - tutorialText: Avoid the <color=red>RED</color> bullet
+    displayDuration: 1
+  - tutorialText: Collect the <color=#00A2FF>BLUE</color> one
+    displayDuration: 1
+  - tutorialText: Ready
+    displayDuration: 1
+  - tutorialText: 3
+    displayDuration: 0.5
+  - tutorialText: 2
+    displayDuration: 0.5
+  - tutorialText: 1
+    displayDuration: 0.5
+  - tutorialText: FIGHT !
+    displayDuration: 0.5
 --- !u!1 &1191238313
 GameObject:
   m_ObjectHideFlags: 0
@@ -2241,10 +2249,10 @@ RectTransform:
   - {fileID: 1899480582}
   m_Father: {fileID: 506562879}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 400, y: 200}
+  m_SizeDelta: {x: 0, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1285630830
 GameObject:

@@ -3,16 +3,26 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerAttributes", menuName = "Scriptable Objects/PlayerAttributes")]
 public class PlayerAttributes : ScriptableObject
 {
-    public float playerBaseDamage;
+    public GameObject playerPlanePrefab;
+    [Header("Upgrade Attribute")]
+    public float playerDamage;
+    public float damageUpgradeAmount;
+    public float damageUpgradeCost;
+    public float playerHealth;
+    public float healthUpgradeAmount;
+    public float healthUpgradeCost;
+    [Header("Default Attribute")]
     public float playerFullChargeDuration;
     public float playerBulletSpeed;
     public float playerBaseDelay;
     public float playerFullChargeDelay;
-    public float playerCoin;
-    public GameObject playerPlanePrefab;
+    [Header("Update Attribute")]
+    public float playerScrap;
+    
     public void ResetAttributes()
     {
-        playerBaseDamage = 1f;
-        playerCoin = 0f;
+        playerDamage = 1f;
+        playerHealth = 100f;
+        playerScrap = 20f;
     }
 }

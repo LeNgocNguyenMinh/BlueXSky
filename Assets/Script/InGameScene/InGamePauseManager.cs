@@ -71,6 +71,7 @@ public class InGamePauseManager : MonoBehaviour
     }
     private void PauseGameOn()
     {
+        Time.timeScale = 0f;
         isPaused = true;
         pauseBtn.gameObject.SetActive(false);
         textImage.sprite = pauseTextSprite;
@@ -86,12 +87,17 @@ public class InGamePauseManager : MonoBehaviour
         animator.updateMode = AnimatorUpdateMode.UnscaledTime;
         animator.SetTrigger("PauseOff");
     }
-    public void SetPauseGameActive(bool value)
+    public void HidePauseBtn()
     {
-        pauseBtn.gameObject.SetActive(value);
+        pauseBtn.gameObject.SetActive(false);
+    }
+    public void ShowPauseBtn()
+    {
+        pauseBtn.gameObject.SetActive(true);
     }
     public void GameOverMenuOn()
     {
+        Time.timeScale = 0f;
         isOver = true;
         pauseBtn.gameObject.SetActive(false);
         textImage.sprite = overTextSprite;
@@ -113,6 +119,7 @@ public class InGamePauseManager : MonoBehaviour
     }
     public void WinGameMenuOn()
     {
+        Time.timeScale = 0f;
         isWin = true;
         pauseBtn.gameObject.SetActive(false);
         textImage.sprite = winTextSprite;
@@ -156,13 +163,6 @@ public class InGamePauseManager : MonoBehaviour
             isWin = false;
             isOver = false;
         }
-        else if(animState == AnimState.PauseOnAnimStart)
-        {
-            Time.timeScale = 0f;
-        }
-        else if(animState == AnimState.PauseOffAnimStart)
-        {
-        }
     }
     private IEnumerator LoadGameScene(string sceneName)
     {
@@ -183,7 +183,7 @@ public class InGamePauseManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
-        SceneTransition.Instance.SceneShow();
+        SceneTransition.Instance.ShowTransStart();
     }
     public bool GetIsPause()
     {

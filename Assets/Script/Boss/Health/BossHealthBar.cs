@@ -38,6 +38,6 @@ public class BossHealthBar : MonoBehaviour
     }
     public void UpdateHealthText()
     {
-        healthText.text = $"{BossHealthControl.Instance.GetCurrentHealthValue()}/{BossHealthControl.Instance.GetMaxHealthValue()}";
+        healthText.text = $"{BossHealthControl.Instance.GetCurrentHealthValue():0.0}/{BossHealthControl.Instance.GetMaxHealthValue():0.0}";
     }
 }

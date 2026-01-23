@@ -8,8 +8,6 @@ public class SceneTransition : MonoBehaviour
     public static SceneTransition Instance;
     private bool hideAnimFinish;
     private bool showAnimFinish;
-    private bool hideAnimStart;
-    private bool showAnimStart;
     public enum SceneTransitionState
     {
         HideTransStart,
@@ -33,16 +31,30 @@ public class SceneTransition : MonoBehaviour
         hideAnimFinish = false;
         showAnimFinish = false;
     }
-    public void SceneHide()
+    //Hide Trans Start
+    public void HideTransStart()
     {
         sceneTransitionAnimator.updateMode = AnimatorUpdateMode.UnscaledTime;
         sceneTransitionAnimator.SetTrigger("SceneHide");
     }
-    public void SceneShow()
+    //Show trans Start
+    public void ShowTransStart()
     {
+        if(SceneManager.GetActiveScene().name == "InGame")
+        {
+            InGameSceneSetUp.Instance.ReadyFight();
+            InGamePauseManager.Instance.HidePauseBtn();
+            InGameSceneSetUp.Instance.PauseFight();
+        }
+        if(SceneManager.GetActiveScene().name == "LevelSelection")
+        {
+            Debug.Log("Can't move");
+            PlayerPlaneControlInLevelSelect.Instance.SetCanMove(false);
+        }
         sceneTransitionAnimator.updateMode = AnimatorUpdateMode.UnscaledTime;
         sceneTransitionAnimator.SetTrigger("SceneShow");
     }
+    //Event in Begin and End of Animation
     public void AnimationTriggerEvent(SceneTransitionState state)
     {
         if(state == SceneTransitionState.HideTransFinish)
@@ -53,46 +65,23 @@ public class SceneTransition : MonoBehaviour
         {
             if(SceneManager.GetActiveScene().name == "InGame")
             {
-                Time.timeScale = 0f;
                 GameTutorial.Instance.StartTutorial();
             }
             if(SceneManager.GetActiveScene().name == "LevelSelection")
             {
-                Time.timeScale = 1f;
                 LevelSelectManager.Instance.SceneEnter();
             }
             showAnimFinish = true;
         }
-        if(state == SceneTransitionState.ShowTransStart)
-        {
-            if(SceneManager.GetActiveScene().name == "InGame")
-            {
-                InGameSceneSetUp.Instance.ReadyFight();
-                InGamePauseManager.Instance.SetPauseGameActive(false);
-            }
-            showAnimStart = true;
-        }
-        if(state == SceneTransitionState.HideTransStart)
-        {
-            Time.timeScale = 0f;
-            hideAnimStart = true;
-        }
-
     }
+    //Check is hide trans finish
     public bool IsHideAnimationFinish()
     {
         return hideAnimFinish;
     }
+    //Check is show trans finish
     public bool IsShowAnimationFinish()
     {
         return showAnimFinish;
-    }
-    public bool IsHideAnimationStart()
-    {
-        return hideAnimStart;
-    }
-    public bool IsShowAnimationStart()
-    {
-        return showAnimStart;
     }
 }

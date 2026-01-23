@@ -15,7 +15,7 @@ public class GameTutorial : MonoBehaviour
     [SerializeField]private RectTransform rbRectPanel;
     [SerializeField]private Vector3 rbHidePos;
     [SerializeField]private Vector3 rbShowPos;
-    public string[] tutorialTexts = { "Welcome to the field captain!", "Avoid the RED bullet", "Collect the BLUE one", "Ready", "3", "2", "1", "Go!"};
+    [SerializeField]private TutorialTextInfo[] tutorialTextList;
     private void Awake()
     {
         if(Instance == null)
@@ -27,21 +27,22 @@ public class GameTutorial : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    //Start the tutorial sequence after show trans finish
     public void StartTutorial()
     {
         animator.updateMode = AnimatorUpdateMode.UnscaledTime;
         Sequence seq = DOTween.Sequence();
         seq.Append(rbRectPanel.DOAnchorPos(rbShowPos, 0.5f).SetEase(Ease.OutBack)).SetUpdate(true);
-        for(int i = 0; i < tutorialTexts.Length; i++)
+        for(int i = 0; i < tutorialTextList.Length; i++)
         {
-            string text = tutorialTexts[i];
+            string text = tutorialTextList[i].tutorialText;
 
             seq.AppendCallback(() =>
             {
                 tutorialText.text = text;
             });
             seq.Append(tutorialPanel.DOAnchorPos(textShowPos, 0.5f).SetEase(Ease.OutBack)).SetUpdate(true);
-            seq.AppendInterval(displayDuration);
+            seq.AppendInterval(tutorialTextList[i].displayDuration);
             seq.Append(tutorialPanel.DOAnchorPos(textHidePos, 0.5f).SetEase(Ease.OutBack)).SetUpdate(true);
             seq.AppendInterval(0.2f);
         }
@@ -49,8 +50,14 @@ public class GameTutorial : MonoBehaviour
         seq.OnComplete(() =>
         {
             Time.timeScale = 1f;
-            InGamePauseManager.Instance.SetPauseGameActive(true);
+            InGamePauseManager.Instance.ShowPauseBtn();
             InGameSceneSetUp.Instance.StartFight();
         });
     }
+}
+[System.Serializable]
+public class TutorialTextInfo
+{
+    public string tutorialText;
+    public float displayDuration;
 }

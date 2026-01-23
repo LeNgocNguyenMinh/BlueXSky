@@ -23,12 +23,13 @@ public class BossHealthControl : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void SetStartupHealth()
+    public void SetStartValue()
     {
         isDead = false;
         healthMaxValue = bossInfoManager.GetBossMaxHealth();
         healthCurrentValue = healthMaxValue;
         BossHealthBar.Instance.SetMaxHealth(); 
+        BossHealthBar.Instance.UpdateHealthText();
     }
     public void BossHurt(float damageAmount) //Boss hurt by enemy
     {
