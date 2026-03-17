@@ -20,7 +20,7 @@
 </p>
 
 #
-## <img width="63" height="50" alt="image" src="https://github.com/user-attachments/assets/b434485c-5f6e-45ee-99f5-3ce19b6de853" /> Blue X Sky
+## <img width="63" height="50" alt="image" src="https://github.com/user-attachments/assets/c23e42f3-f0a2-4164-9340-78a7f9ea3c50" /> Blue X Sky
 <p align="center">
   <i>
     "Welcome to the journey, adventurer!!! Fight against the Shape to protect the universe!!!"
